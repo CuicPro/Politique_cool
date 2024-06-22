@@ -1,0 +1,139 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+#card-container{
+    display: flex;
+    height: 100%;
+}
+.card{
+    flex: 1;
+    position: relative;
+    background-color: #f9f9f9;
+    transition: all .7s ease;
+}
+.card.hidden {
+    flex: 0;
+    opacity: 0;
+    width: 0;
+}
+.card.open{
+    flex: 2;
+    opacity: 1;
+    width: 100%;
+}
+#closeButton{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f9f9f9;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-radius: 50%;
+    background-color: #00000090;
+    &.active{
+        z-index: 999;
+        opacity: 1;
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+    }
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+.content {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card.hidden .content {
+    display: none;
+}
+.card.open .content {
+    display: flex;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.container-icon {
+    display: table-row-group;
+    column-count: 2;
+    padding: 0;
+    margin: 0;
+    transition: all .1s .0s ease;
+}
+.card.open .container-icon{
+    column-count: 4;
+    transition: all .1s .3s ease;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 50%;
+    background: #00000090;
+}
+.card.open .icon{
+    width: 100%;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.icon-svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+.icon-name, .valeur {
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.icon-name{
+    opacity: 0;
+    height: 0;
+}
+.card.open .icon-name {
+    opacity: 1;
+    height: auto;
+    padding: 5px;
+    border-right: 2px solid;
+    border-left: 2px solid;
+}
